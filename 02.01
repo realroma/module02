@@ -4,10 +4,10 @@ import (
     "fmt") 
     
 type americanVelocity float64
-type evropianVelocity float64
+type europianVelocity float64
 
 var Aspeed americanVelocity
-var Espeed evropianVelocity
+var Espeed europianVelocity
 
 func americanSpeed (data americanVelocity) {
     cof:= 2.237
@@ -16,8 +16,8 @@ func americanSpeed (data americanVelocity) {
     fmt.Println(Aspeed, "миль/час")
 }
 
-func evropianSpeed (data evropianVelocity){
-    var cof evropianVelocity= 3.588
+func europianSpeed (data europianVelocity){
+    var cof europianVelocity= 3.588
     Espeed = data*cof
     fmt.Println(Espeed, "километры/час")
 }
@@ -25,6 +25,6 @@ func evropianSpeed (data evropianVelocity){
 func main() {
     var dataA americanVelocity = 130
     americanSpeed(dataA)
-    var dataE evropianVelocity = 120.4
-    evropianSpeed(dataE)
+    var dataE europianVelocity = 120.4
+    europianSpeed(dataE)
 }
