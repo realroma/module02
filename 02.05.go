@@ -10,6 +10,7 @@ func contains (a []string, x string) (res bool){
 	}
 	return res
 }
+
 func main(){
 	var a []string
 	a = []string{"i", "know", "where"}
