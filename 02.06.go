@@ -5,9 +5,13 @@ import (
 	"fmt"
 	"time"
 	"bufio"
+	"strconv"
 )
+
 var start time.Time
 var m time.Time
+var x int = 1
+
 func logTime() {
 	if start == m { //Проверка на наличие точки отсчёта
 		start = time.Now() //Записывает момент во времени который будет точкой отсчёта
@@ -25,14 +29,13 @@ func main() {
 	logTime()//Вызов функции и начало отсчёта
 	file, err := os.Create("out.txt")     // создаем файл
 	r, _ := os.Open("in.txt") // Открываем файл который будем сканировать построчно
-	writer := bufio.NewWriter(file)//Указываем куда ведётся запись с буфера
-	reader := bufio.NewScanner(r)
-	var x int = 1
+	writer := bufio.NewWriter(file)// Указываем куда ведётся запись с буфера
+	reader := bufio.NewScanner(r)// Создаём сканер для in.txt
 	for reader.Scan() {
-		fmt.Println(x, reader.Text())
-		x++
+		a := strconv.Itoa(x)// Int переводим в string
+		writer.WriteString(a + " " + reader.Text() + "\n")// Записываем в буфер строку
+		x++ // Увеличиваем x на 1
 	}
-	writer.WriteString("1")//Запись строки в буфер
 	writer.Flush()//Запись из буфера в файл
 	if err != nil {
 		fmt.Println("i have been stopping of error")
